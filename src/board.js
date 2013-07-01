@@ -95,6 +95,8 @@ var Board = (function(){
 						neighborsLive++;
 					if(neighborsLive<2||neighborsLive>3)
 						arrayCell[i].isLife = false;
+
+					
 				}
 				
 			};
