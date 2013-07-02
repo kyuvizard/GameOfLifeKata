@@ -1,1 +1,3 @@
 https://www.mozilla-hispano.org/documentacion/C%C3%B3mo_usar_el_repositorio_de_c%C3%B3digo#Pull_request
+
+thanks!!!
