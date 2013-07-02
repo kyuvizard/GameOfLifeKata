@@ -54,10 +54,6 @@ var Board = (function(){
 			
 		}
 
-		/*this.putCellOnGrind = function(h,w){
-			
-		}*/
-
 		this.drawBoard = function(grid){
 			if(!grid)
 				fillCell();
