@@ -41,17 +41,23 @@ var Board = (function(){
 			for (var i = 0; i < 10; i++) {
 				var h = Math.floor((Math.random()*height-1));
 				var w = Math.floor((Math.random()*width-1));
-				if(h<=0) h = 1;
-				if(w<=0) w = 1;
-				_grid[w][h] = new Cell(w,h);
+				this.putCellOnGrind(h,w);
 			};
 			fillLiveCell();
+		}
+
+		this.putCellOnGrind = function(h,w){
+			if(h<=0) h = 1;
+				if(w<=0) w = 1;
+				_grid[w][h] = new Cell(w,h);
 		}
 
 		this.drawBoard = function(){
 			fillCell();
 			this.iterate();
 		}
+
+
 
 		this.viewNextyGenera = function(){
 			for (var i = 0; i < arrayCell.length; i++) {
