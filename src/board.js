@@ -10,11 +10,16 @@ var Cell = (function(){
 var Board = (function(){
 	return function(height,width){
 
-		var height = 6;
-		var width = 5;
+		var height = height || 6;
+		var width = width || 5;
 
 		var arrayCell = new Array();
 		var _grid = new Array(height);
+
+		this.grid = function(){
+			return _grid;
+		}
+
 		for (var i = 0; i < height; i++)
 			_grid[i] = new Array(width);
 
@@ -39,6 +44,7 @@ var Board = (function(){
 		}
 
 		var fillCell = function(){
+
 			for (var i = 0; i < 10; i++) {
 				var h = Math.floor((Math.random()*height-1));
 				var w = Math.floor((Math.random()*width-1));
@@ -54,7 +60,9 @@ var Board = (function(){
 		}*/
 
 		this.drawBoard = function(){
-			fillCell();
+
+			//if(!isRandom)
+				fillCell();
 			/*_grid[1][1] = new Cell(1,1);//h,w
 			_grid[2][1] = new Cell(2,1);
 			_grid[2][1].isLife = false;
