@@ -64,7 +64,10 @@ var Board = (function(){
 			_grid[4][1].isLife = false;
 
 			_grid[2][2] = new Cell(2,2);
-			_grid[2][2].isLife = false;*/
+			_grid[2][2].isLife = false;
+			_grid[3][2] = new Cell(3,2);
+			_grid[1][3] = new Cell(1,3);
+			_grid[1][3].isLife = false;*/
 			fillLiveCell();
 			this.iterate();
 		}
@@ -78,7 +81,7 @@ var Board = (function(){
 				var neighborsLive = 0;
 				var neighborsUnLive = 0;
 				if(arrayCell[i].isLife) {
-					if(_grid[x][y].isLife){
+					
 						if(_grid[x+1][y] &&_grid[x+1][y].isLife)
 							neighborsLive++;
 						if(_grid[x+1][y+1] && _grid[x+1][y+1].isLife)
@@ -98,9 +101,12 @@ var Board = (function(){
 						if(neighborsLive<2||neighborsLive>3){						
 								arrayCell[i].isLife = false;
 						}
-					}else
-						arrayCell[i].isLife = false;
-						
+						if(!_grid[x][y].isLife){							
+							if(neighborsLive==3)
+								arrayCell[i].isLife = true;
+							else
+								arrayCell[i].isLife = false;
+						}																	
 				}
 			};
 			updateBoard();
