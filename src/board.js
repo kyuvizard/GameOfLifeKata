@@ -24,10 +24,9 @@ var Board = (function(){
 		};
 
 		var fillLiveCell = function(){
-			
+
 			for (var w = 0; w < width; w++) {
 					for (var h = 0; h < height; h++) {
-				for (var w = 0; w < width; w++) {
 					if(_grid[w][h] )
 						arrayCell.push( new Cell(w, h));
 				}
@@ -52,7 +51,7 @@ var Board = (function(){
 				if(w<=0) w = 1;
 				_grid[w][h] = new Cell(w,h);
 			};
-			
+
 		}
 
 		this.drawBoard = function(grid){
@@ -71,7 +70,7 @@ var Board = (function(){
 				var neighborsLive = 0;
 				var neighborsUnLive = 0;
 				if(arrayCell[i].isLife) {
-					
+
 						if(_grid[x+1][y] &&_grid[x+1][y].isLife)
 							neighborsLive++;
 						if(_grid[x+1][y+1] && _grid[x+1][y+1].isLife)
@@ -88,15 +87,15 @@ var Board = (function(){
 							neighborsLive++;
 						if(_grid[x-1][y-1] && _grid[x-1][y-1].isLife)
 							neighborsLive++;
-						if(neighborsLive<2||neighborsLive>3){						
+						if(neighborsLive<2||neighborsLive>3){
 								arrayCell[i].isLife = false;
 						}
-						if(!_grid[x][y].isLife){							
+						if(!_grid[x][y].isLife){
 							if(neighborsLive==3)
 								arrayCell[i].isLife = true;
 							else
 								arrayCell[i].isLife = false;
-						}																	
+						}
 				}
 			};
 			updateBoard();
@@ -107,7 +106,7 @@ var Board = (function(){
 
 		this.iterate = function(){
 			var str = '';
-			
+
 
 			for (var w = 0; w < width; w++) {
 				for (var h = 0; h < height; h++) {
