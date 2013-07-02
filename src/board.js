@@ -14,15 +14,14 @@ var Board = (function(){
 		var width = width || 5;
 
 		var arrayCell = new Array();
-		var _grid = new Array(height);
+		var _grid = new Array(width);
+
+		for (var i = 0; i < width; i++)
+			_grid[i] = new Array(height);
 
 		this.grid = function(){
 			return _grid;
-		}
-
-		for (var i = 0; i < height; i++)
-			_grid[i] = new Array(width);
-
+		};
 
 		var fillLiveCell = function(){
 			
@@ -45,6 +44,7 @@ var Board = (function(){
 		}
 
 		var fillCell = function(){
+
 			for (var i = 0; i < 10; i++) {
 				var h = Math.floor((Math.random()*height-1));
 				var w = Math.floor((Math.random()*width-1));
@@ -52,40 +52,19 @@ var Board = (function(){
 				if(w<=0) w = 1;
 				_grid[w][h] = new Cell(w,h);
 			};
-			fillLiveCell();
-		}
-
 			
 		}
 
-		/*this.putCellOnGrind = function(h,w){
-			
-		}*/
-
-		this.drawBoard = function(){
-
-			//if(!isRandom)
+		this.drawBoard = function(grid){
+			if(!grid)
 				fillCell();
-			/*_grid[1][1] = new Cell(1,1);//h,w
-			_grid[2][1] = new Cell(2,1);
-			_grid[2][1].isLife = false;
-
-			_grid[3][1] = new Cell(3,1);
-			_grid[4][1] = new Cell(4,1);
-			_grid[4][1].isLife = false;
-
-			_grid[2][2] = new Cell(2,2);
-			_grid[2][2].isLife = false;
-			_grid[3][2] = new Cell(3,2);
-			_grid[1][3] = new Cell(1,3);
-			_grid[1][3].isLife = false;*/
 			fillLiveCell();
 			this.iterate();
 		}
 
 
 
-		this.viewNextyGenera = function(){
+		this.viewNextGeneration = function(){
 			for (var i = 0; i < arrayCell.length; i++) {
 				var x =arrayCell[i].x;
 				var y =arrayCell[i].y;
